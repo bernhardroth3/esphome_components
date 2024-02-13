@@ -9,6 +9,10 @@ namespace magic_switch {
 
 class MagicSwitch : public Component {
  public:
+  void setup();
+  void loop();
+  float get_setup_priority() const;
+  void dump_config();
 
   void set_pin(InternalGPIOPin *pin) { this->pin_ = pin; }
   void set_timeout(uint32_t timeout) { this->timeout_ = timeout; }
