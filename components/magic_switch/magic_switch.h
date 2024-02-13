@@ -9,10 +9,10 @@ namespace magic_switch {
 
 class MagicSwitch : public Component {
  public:
-  void setup() override;
-  void loop() override;
-  float get_setup_priority() const override;
-  void dump_config() override;
+  extern void setup() override;
+  extern void loop() override;
+  extern float get_setup_priority() const override;
+  extern void dump_config() override;
 
   void set_pin(InternalGPIOPin *pin) { this->pin_ = pin; }
   void set_timeout(uint32_t timeout) { this->timeout_ = timeout; }
@@ -23,7 +23,7 @@ class MagicSwitch : public Component {
   uint32_t timeout_;
   Trigger<> *switch_trigger_ = new Trigger<>();
 
-  static void edge_intr(MagicSwitch *comp);
+  extern static void edge_intr(MagicSwitch *comp);
 
   volatile uint32_t pulse_{0};
 
